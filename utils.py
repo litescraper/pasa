@@ -20,6 +20,7 @@ Please note that:
    We would greatly appreciate and look forward to your contributions!!
 """
 import re
+import os
 import bs4
 import json
 import arxiv
@@ -30,13 +31,13 @@ import requests
 from datetime   import datetime
 warnings.simplefilter("always")
 
-GOOGLE_KEY   = 'your google keys'
+GOOGLE_KEY   = os.getenv("SERPER_API_KEY", 'your google keys')
 arxiv_client = arxiv.Client(delay_seconds = 0.05)
 id2paper     = json.load(open("data/paper_database/id2paper.json"))
 paper_db     = zipfile.ZipFile("data/paper_database/cs_paper_2nd.zip", "r")
 
 def google_search_arxiv_id(query, num=10, end_date=None):
-    url = "https://google.serper.dev/search"
+    url = f'{os.getenv("SERPER_BASE_URL", "https://google.serper.dev").rstrip("/")}/search'
 
     search_query = f"{query} site:arxiv.org"
     if end_date:

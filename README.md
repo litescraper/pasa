@@ -21,6 +21,11 @@ We introduce PaSa, an advanced **Pa**per **S**e**a**rch agent powered by large l
 
 ## Quick Start
 
+For local Google searches, set `SERPER_BASE_URL` to a compatible API base
+(without `/search`) and `SERPER_API_KEY` to that provider's key. The default
+base remains `https://google.serper.dev`; trailing slashes are removed.
+Support any Serper.dev-compatible endpoint (like litescrape.com, serpbase.dev, serpensapi.org, and others).
+
 You can prepare a detailed description of your academic search needs, and search for papers on [https://pasa-agent.ai](https://pasa-agent.ai)
 
 [![Watch the video](src/cover.png)](https://www.youtube.com/watch?v=LhXCKZyriNs)
